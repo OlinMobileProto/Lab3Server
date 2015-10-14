@@ -13,12 +13,12 @@ This route takes no parameters, and returns data in the following format:
 
 ``` JSON
 {
-	'path': [
+	"path": [
 		{
-			'id' : id,
-			'latitude' : latitude,
-			'longitude' : longitude,
-			's3id' : s3id
+			"id" : id,
+			"latitude" : latitude,
+			"longitude" : longitude,
+			"s3id" : s3id
 		}, ...
 	]
 }
@@ -34,10 +34,10 @@ This route takes the appId as a part of the url. You should code the appId in yo
 
 ``` JSON
 {
-	'data': [
+	"data": [
 		{
-			'imageLocation' : imageLocation,
-			'url' : url
+			"imageLocation" : imageLocation,
+			"url" : url
 		}, ...
 	]
 }
@@ -47,14 +47,14 @@ imageLocation is the number of the location, from 1 to the number of clues. For 
 
 ### POST /userdata/<appId>
 
-Use this route after you've uploaded a picture to s3, and now you are ready to save the image URL and location on the server. 
+Use this route after you"ve uploaded a picture to s3, and now you are ready to save the image URL and location on the server. 
 
 This route takes the appId as a part of the url. You should code the appId in your app, simply choose it yourself but make sure that it is unique to you (i.e. add your names or make it really long). It also takes a body in the following format:
 
 ``` JSON
 {
-	'imageUrl': imageUrl,
-	'imageLocation': imageLocation
+	"imageUrl": imageUrl,
+	"imageLocation": imageLocation
 }
 ```
 
