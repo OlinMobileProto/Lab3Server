@@ -1,0 +1,26 @@
+{
+  "name": "Lab3Server",
+  "version": "1.0.0",
+  "description": "Olin Mobile Prototyping lab 3 server.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OlinMobileProto/Lab3Server"
+  },
+  "author": "Sawyer Vaughan, Chris Wallace, Hayley Hansson, Deniz Celik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OlinMobileProto/Lab3Server/issues"
+  },
+  "homepage": "https://github.com/OlinMobileProto/Lab3Server",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.11",
+    "morgan": "^1.6.1"
+  }
+}

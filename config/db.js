@@ -1,3 +1,3 @@
 module.exports = {
-	'url' : 'mongo://something/here:thing' // why
+	'url' : 'mongodb://localhost:27017/lab3server' // why
 }

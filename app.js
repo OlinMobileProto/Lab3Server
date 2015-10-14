@@ -35,20 +35,22 @@ app.get('/scavengerhunt', function(req, res) {
 
 app.post('/userdata/:appId', function(req, res) {
   var appId = req.params.appId;
-  //var imagePath = req.body.imagePath;
-  //var imageLocation = req.body.imageLocation
+  var imageUrl = req.body.imageUrl;
+  var imageLocation = req.body.imageLocation
   
+  console.log(appId);
   // here we shall get the user's data and save it to mongo
-  AppModel.findOne({ 'appId' : appId }, function(err, app) {
+  AppModel.findOne({ 'appId' : appId }, function(err, a) {
     if (err) {
       res.sendStatus(500);
       return;
     }
 
-    if (!app) {
+    if (!a) {
+      console.log("NO APP");
       var imageModel = new ImageModel();
-      //imageModel.s3id = "thing";
-      //imageModel.placeId = "HI";
+      imageModel.url = imageUrl;
+      imageModel.imageLocation = imageLocation;
       var newApp = new AppModel();
 
       newApp.appId = appId;
@@ -59,13 +61,26 @@ app.post('/userdata/:appId', function(req, res) {
           res.sendStatus(500);
           return;
         }
+
+        res.sendStatus(200);
+        return;
       });
     } else {
+      console.log("APP");
       var imageModel = new ImageModel();
-      //imageModel.s3id = "thing";
-      //imageModel.placeId = "HI";
-      app.userImages.append(imageModel);
-      return;
+      imageModel.url = imageUrl;
+      imageModel.imageLocation = imageLocation;
+      a.userImages.push(imageModel);
+
+      a.save(function(err) {
+        if (err) {
+          res.sendStatus(500);
+          return;
+        }
+
+        res.sendStatus(200);
+        return;
+      });
     }
   });
 });
@@ -73,6 +88,7 @@ app.post('/userdata/:appId', function(req, res) {
 app.get('/userdata/:appId', function(req, res) {
   var appId = req.params.appId;
 
+  console.log(appId);
   // here we shall get the users data from mongo and return this to the app.
   AppModel.findOne({ 'appId' : appId }, function(err, app) {
     if (err) {
@@ -81,6 +97,7 @@ app.get('/userdata/:appId', function(req, res) {
     }
 
     if (!app) {
+      console.log("NO app");
       var newApp = new AppModel();
 
       newApp.appId = appId;
@@ -94,7 +111,8 @@ app.get('/userdata/:appId', function(req, res) {
       });
     } else {
       var images = app.userImages;
-      res.json(images);
+      console.log(images);
+      res.json({'data':images);
       return;
     }
   });

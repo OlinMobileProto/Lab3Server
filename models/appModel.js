@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 
 var imageSchema = mongoose.Schema({
-	's3id' : String,
-	'placeId' : String
+	'url' : String,
+	'imageLocation' : String
 });
 
 var appSchema = mongoose.Schema({
 	'appId' : String,
-	'userImages' : imageSchema
+	'userImages' : [imageSchema]
 });
 
 module.exports = {
