@@ -28,7 +28,7 @@ This route takes no parameters, and returns data in the following format:
 
 id is the number of the place, in order from 1 to the number of clues. s3id is the id of the video clue in the s3 bucket. 
 
-### GET /userdata/<appId>
+### GET /userdata/:appId:
 
 Use this route to get an array of images that have been uploaded to s3 from your app. 
 
@@ -47,7 +47,7 @@ This route takes the appId as a part of the url. You should code the appId in yo
 
 imageLocation is the number of the location, from 1 to the number of clues. For example, a imageLocation of 3 means that the image was taken at the 3rd location. url is the URL of the image.
 
-### POST /userdata/<appId>
+### POST /userdata/:appId:
 
 Use this route after you"ve uploaded a picture to s3, and now you are ready to save the image URL and location on the server. 
 
