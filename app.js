@@ -29,7 +29,46 @@ app.get('/sawyerssecretroute', function(req, res) {
 });
 
 app.get('/scavengerhunt', function(req, res) {
-  var object = {'path':['HI', 'Hello']};
+  var object = {
+    "path": [
+      {
+        "id" : 1,
+        "latitude" : 42.29386,
+        "longitude" : -71.26483,
+        "s3id" : "MVI_3146.3gp"
+      },
+      {
+        "id" : 2,
+        "latitude" : 42.292987,
+        "longitude" : -71.264039,
+        "s3id" : "MVI_3145.3gp"
+      },
+      {
+        "id" : 3,
+        "latitude" : 42.292733,
+        "longitude" : -71.263977,
+        "s3id" : "MVI_3144.3gp"
+      },
+      {
+        "id" : 4,
+        "latitude" : 42.293445,
+        "longitude" : -71.263481,
+        "s3id" : "MVI_3147.3gp"
+      },
+      {
+        "id" : 5,
+        "latitude" : 42.293108,
+        "longitude" : -71.262802,
+        "s3id" : "MVI_3141.3gp"
+      },
+      {
+        "id" : 6,
+        "latitude" : 42.292701,
+        "longitude" : -71.262054,
+        "s3id" : "MVI_3140.3gp"
+      }
+    ]
+  };
   res.json(object);
 });
 
@@ -37,6 +76,10 @@ app.post('/userdata/:appId', function(req, res) {
   var appId = req.params.appId;
   var imageUrl = req.body.imageUrl;
   var imageLocation = req.body.imageLocation
+
+  if (imageUrl == null || imageLocation == null) {
+    res.json({"error":"Set the imageUrl and imageLocation in the body"});
+  }
   
   console.log(appId);
   // here we shall get the user's data and save it to mongo
@@ -47,7 +90,6 @@ app.post('/userdata/:appId', function(req, res) {
     }
 
     if (!a) {
-      console.log("NO APP");
       var imageModel = new ImageModel();
       imageModel.url = imageUrl;
       imageModel.imageLocation = imageLocation;
@@ -111,18 +153,14 @@ app.get('/userdata/:appId', function(req, res) {
       });
     } else {
       var images = app.userImages;
-      console.log(images);
-      res.json({'data':images);
+      res.json({'data':images});
       return;
     }
   });
 });
 
+var url = "0.0.0.0";
 var port = process.env.PORT || 8080;
 
-var server = app.listen(port, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
-});
+app.listen(port, url);
+console.log('Express started on port ' + port + " at " + url);

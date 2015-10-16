@@ -1,6 +1,8 @@
 # Lab3Server
 This is the server for lab 3. 
 
+IP: 45.55.65.113
+
 ## Routes
 
 All routes return 500 for error. 
@@ -63,4 +65,7 @@ imageUrl is the url of the image that was uploaded. imageLocation is the number 
 
 It returns either a 200 status code for success or a 500 status code for error. 
 
+### GET /sawyerssecretroute
+
+It's a surprise. 
 
