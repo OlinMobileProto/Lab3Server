@@ -81,6 +81,7 @@ app.post('/userdata/:appId', function(req, res) {
   console.log(imageLocation);
   if (imageUrl == null || imageLocation == null) {
     res.json({"error":"Set the imageUrl and imageLocation in the body"});
+    return;
   }
   
   console.log(appId);
