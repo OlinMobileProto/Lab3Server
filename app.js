@@ -77,6 +77,7 @@ app.post('/userdata/:appId', function(req, res) {
   var imageUrl = req.body.imageUrl;
   var imageLocation = req.body.imageLocation
 
+  console.log(req.body);
   console.log(imageUrl);
   console.log(imageLocation);
   if (imageUrl == null || imageLocation == null) {
