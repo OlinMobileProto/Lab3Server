@@ -150,6 +150,9 @@ app.get('/userdata/:appId', function(req, res) {
           res.sendStatus(500);
           return;
         }
+
+        res.json({'data':newApp.userImages});
+        return;
       });
     } else {
       var images = app.userImages;
