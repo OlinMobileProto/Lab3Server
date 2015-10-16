@@ -73,11 +73,11 @@ app.get('/scavengerhunt', function(req, res) {
 
 app.post('/userdata/:appId', function(req, res) {
   var appId = req.params.appId;
-  var imageUrl = req.body.imageUrl;
+  var imageKey = req.body.imageKey;
   var imageLocation = req.body.imageLocation
 
-  if (imageUrl == null || imageLocation == null) {
-    res.json({"error":"Set the imageUrl and imageLocation in the body"});
+  if (imageKey == null || imageLocation == null) {
+    res.json({"error":"Set the imageKey and imageLocation in the body"});
     return;
   }
   
@@ -91,7 +91,7 @@ app.post('/userdata/:appId', function(req, res) {
 
     if (!a) {
       var imageModel = new ImageModel();
-      imageModel.url = imageUrl;
+      imageModel.imageKey = imageKey;
       imageModel.imageLocation = imageLocation;
       var newApp = new AppModel();
 
@@ -110,7 +110,7 @@ app.post('/userdata/:appId', function(req, res) {
     } else {
       console.log("APP");
       var imageModel = new ImageModel();
-      imageModel.url = imageUrl;
+      imageModel.imageKey = imageKey;
       imageModel.imageLocation = imageLocation;
       a.userImages.push(imageModel);
 

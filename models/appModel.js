@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var imageSchema = mongoose.Schema({
-	'url' : String,
+	'imageKey' : String,
 	'imageLocation' : String
 });
 

@@ -39,28 +39,28 @@ This route takes the appId as a part of the url. You should code the appId in yo
 	"data": [
 		{
 			"imageLocation" : imageLocation,
-			"url" : url
+			"imageKey" : imageKey
 		}, ...
 	]
 }
 ```
 
-imageLocation is the number of the location, from 1 to the number of clues. For example, a imageLocation of 3 means that the image was taken at the 3rd location. url is the URL of the image.
+imageLocation is the number of the location, from 1 to the number of clues. For example, a imageLocation of 3 means that the image was taken at the 3rd location. imageKey is the S3 identifier or key of the image.
 
 ### POST /userdata/:appId:
 
-Use this route after you"ve uploaded a picture to s3, and now you are ready to save the image URL and location on the server. 
+Use this route after you"ve uploaded a picture to s3, and now you are ready to save the image key and location on the server. 
 
 This route takes the appId as a part of the url. You should code the appId in your app, simply choose it yourself but make sure that it is unique to you (i.e. add your names or make it really long). It also takes a body in the following format:
 
 ``` JSON
 {
-	"imageUrl": imageUrl,
+	"imageKey": imageKey,
 	"imageLocation": imageLocation
 }
 ```
 
-imageUrl is the url of the image that was uploaded. imageLocation is the number of the location, from 1 to the number of clues. For example, an imageLocation of 3 means that the image was taken at the 3rd location. 
+imageKey is the s3 key or identifier of the image that was uploaded. imageLocation is the number of the location, from 1 to the number of clues. For example, an imageLocation of 3 means that the image was taken at the 3rd location. 
 
 
 It returns either a 200 status code for success or a 500 status code for error. 
