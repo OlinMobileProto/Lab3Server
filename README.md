@@ -32,7 +32,7 @@ id is the number of the place, in order from 1 to the number of clues. s3id is t
 
 Use this route to get an array of images that have been uploaded to s3 from your app. 
 
-This route takes the appId as a part of the url. You should code the appId in your app, simply choose it yourself but make sure that it is unique to you (i.e. add your names or make it really long). It returns data in the following format:
+This route takes the appId as a part of the url. You should replace the whole ":appId:" with your app id. For example, with an appId of hello, you would use http://45.55.65.113/userdata/hello as your URL. You should code the appId in your app, simply choose it yourself but make sure that it is unique to you (i.e. add your names or make it really long). It returns data in the following format:
 
 ``` JSON
 {
@@ -51,7 +51,7 @@ imageLocation is the number of the location, from 1 to the number of clues. For 
 
 Use this route after you"ve uploaded a picture to s3, and now you are ready to save the image key and location on the server. 
 
-This route takes the appId as a part of the url. You should code the appId in your app, simply choose it yourself but make sure that it is unique to you (i.e. add your names or make it really long). It also takes a body in the following format:
+This route takes the appId as a part of the url. You should replace the whole ":appId:" with your app id. For example, with an appId of hello, you would use http://45.55.65.113/userdata/hello as your URL. You should code the appId in your app, simply choose it yourself but make sure that it is unique to you (i.e. add your names or make it really long). It also takes a body in the following format:
 
 ``` JSON
 {
